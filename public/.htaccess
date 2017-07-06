@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Resources / Assests
+    RewriteCond %{REQUEST_FILENAME} !-d # If directory does not exist
+    RewriteRule ^(.*)/$ /$1 [L,R=301] # Cleanup the url/path
+
+    # Controller / Backend
+    RewriteCond %{REQUEST_FILENAME} !-d # If directory does not exist
+    RewriteCond %{REQUEST_FILENAME} !-f # If file does not exist
+    RewriteRule ^ index.php [L]
+</IfModule>

@@ -1,0 +1,20 @@
+{
+  "name": "egordm/hello-framework",
+  "description": "A custom php framework",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Egor Dmitriev",
+      "email": "egordmitriev2@gmail.com"
+    }
+  ],
+  "minimum-stability": "alpha",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Framework\\": "framework/",
+      "Backend\\": "backend/"
+    }
+  }
+}
