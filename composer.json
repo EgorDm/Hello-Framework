@@ -13,8 +13,6 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "Framework\\": "framework/",
-      "Backend\\": "backend/"
     }
   }
 }

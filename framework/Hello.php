@@ -3,10 +3,35 @@
  * Created by PhpStorm.
  * User: egordm
  * Date: 6-7-17
- * Time: 22:31
+ * Time: 23:56
  */
+
 namespace Framework;
 
-class Hello {
 
+use Framework\Core\Request;
+
+class Hello
+{
+    /***
+     * @var Request
+     */
+    private static $request;
+
+    /**
+     * Hello constructor.
+     */
+    public function __construct()
+    {
+        self::$request = Request::initialize();
+    }
+
+
+    /**
+     * @return Request
+     */
+    public static function getRequest(): Request
+    {
+        return self::$request;
+    }
 }
