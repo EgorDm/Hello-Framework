@@ -21,3 +21,6 @@
 # Composer
 composer.phar
 /vendor/
+
+# Project
+/temp/*
