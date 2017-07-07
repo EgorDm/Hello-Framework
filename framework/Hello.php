@@ -9,6 +9,8 @@
 namespace Framework;
 
 
+use Framework\Core\ErrorHandler;
+use Framework\Core\Logger;
 use Framework\Core\Request;
 
 class Hello
@@ -18,12 +20,21 @@ class Hello
      */
     private static $request;
 
+    /***
+     * @var ErrorHandler
+     */
+    private static $error_handler;
+
     /**
      * Hello constructor.
      */
     public function __construct()
     {
+        Logger::initialize();
         self::$request = Request::initialize();
+        self::$error_handler = new ErrorHandler();
+
+        throw new \Exception('Foo Bar');
     }
 
 

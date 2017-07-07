@@ -50,14 +50,13 @@ class Logger
 
     public static function error(\Throwable $exception)
     {
-        $message = sprintf("Exception: \"%s\" in file: \"%s\" at line %d.\n\tStackTrace: %s",
-            $exception->getMessage(), $exception->getFile(), $exception->getLine(), $exception->getTraceAsString());
+        $message = ErrorHandler::formatException($exception);
         self::log($message);
     }
 
     public static function log($message)
     {
-        if (!self::isOpen()) return;
+        if (!self::open()) return;
         flock(self::$log_file, LOCK_EX);
         fwrite(self::$log_file, "$message\n");
         flock(self::$log_file, LOCK_UN);
