@@ -12,6 +12,7 @@ namespace Framework;
 use Framework\Core\ErrorHandler;
 use Framework\Core\Logger;
 use Framework\Core\Request;
+use Framework\Core\Session;
 
 class Hello
 {
@@ -19,6 +20,11 @@ class Hello
      * @var Request
      */
     private static $request;
+
+    /***
+     * @var Session
+     */
+    public static $session;
 
     /***
      * @var ErrorHandler
@@ -31,10 +37,14 @@ class Hello
     public function __construct()
     {
         Logger::initialize();
-        self::$request = Request::initialize();
         self::$error_handler = new ErrorHandler();
+        self::$request = Request::initialize();
+        self::$session = new Session(self::$request);
 
-        throw new \Exception('Foo Bar');
+        //self::$session->set('hello', 'world');
+        //echo self::$session->get('hello');
+
+        //throw new \Exception('Foo Bar');
     }
 
 
