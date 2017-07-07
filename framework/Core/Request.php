@@ -95,6 +95,15 @@ class Request
         return $this->getHeader('X-Requested-With') == 'XMLHttpRequest';
     }
 
+    /**
+     * Checks if request has a ajax header or accepts json
+     * @return bool
+     */
+    public function isJson()
+    {
+        return $this->isAjax() || $this->getHeader('Accept') == 'application/json';
+    }
+
     public function getHeader($header)
     {
         return $this->server->get(strtoupper($header));
@@ -105,5 +114,12 @@ class Request
         return !empty($this->server->get('HTTPS'));
     }
 
+    public function getJson()
+    {
+        if (!isset($this->json)) {
+            $this->json = json_decode($this->content, true);
+        }
+        return $this->json;
+    }
 
 }
