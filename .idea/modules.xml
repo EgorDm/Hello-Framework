@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../custom-framework/.idea/custom-framework.iml" filepath="$PROJECT_DIR$/../custom-framework/.idea/custom-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/helloframework.iml" filepath="$PROJECT_DIR$/.idea/helloframework.iml" />
     </modules>
   </component>
 </project>

@@ -68,11 +68,13 @@ class Request
         $ret->host = $_SERVER['HTTP_HOST'];
         $ret->method = $_SERVER['REQUEST_METHOD'];
 
+        $path_str = $_SERVER['REQUEST_URI'];
         if (!empty($_SERVER['QUERY_STRING'])) {
             $query_pos = strpos($_SERVER['REQUEST_URI'], $_SERVER['QUERY_STRING']) - 1;
             $path_str = substr($_SERVER['REQUEST_URI'], 0, $query_pos);
             $ret->path = array_values(array_filter(explode('/', $path_str))); //TODO: helper func remove empty elements
         }
+        $ret->path = array_values(array_filter(explode('/', $path_str)));
 
         $ret->query = new Collection($_GET);
         $ret->post = new Collection($_POST);

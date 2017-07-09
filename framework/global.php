@@ -8,6 +8,7 @@
 
 if (! function_exists('view')) {
     function view() {
-        echo 'hello world!';
+        //echo 'hello world!';
+        return null;
     }
 }

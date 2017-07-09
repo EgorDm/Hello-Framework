@@ -9,11 +9,14 @@
 namespace Backend\Controllers;
 
 
-class MainController
+use Framework\Core\Controller;
+
+class MainController extends Controller
 {
 
     public function index()
     {
+        echo 'Hello, World!';
         return view();
     }
 
