@@ -14,6 +14,7 @@ use Framework\Core\Logger;
 use Framework\Core\Request;
 use Framework\Core\Router;
 use Framework\Core\Session;
+use Framework\ORM\DatabaseConnection;
 
 class Hello
 {
@@ -33,6 +34,11 @@ class Hello
     public static $router;
 
     /***
+     * @var DatabaseConnection
+     */
+    protected static $connection;
+
+    /***
      * @var ErrorHandler
      */
     private static $error_handler;
@@ -48,13 +54,11 @@ class Hello
         self::$session = new Session(self::$request);
         self::$router = new Router();
 
+        self::$connection = new DatabaseConnection('localhost', 'helloframework', 'root', '', 'utf8');
+        self::getConnection()->query('CREATE TABLE hello (id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY, world VARCHAR(225))', []);
+
         self::$router->handleRequest(self::$request);
 
-
-        //self::$session->set('hello', 'world');
-        //echo self::$session->get('hello');
-
-        //throw new \Exception('Foo Bar');
     }
 
 
@@ -64,5 +68,13 @@ class Hello
     public static function getRequest(): Request
     {
         return self::$request;
+    }
+
+    /**
+     * @return DatabaseConnection
+     */
+    public static function getConnection(): DatabaseConnection
+    {
+        return self::$connection;
     }
 }
