@@ -45,6 +45,7 @@ class Hello
         //echo self::$session->get('hello');
 
         //throw new \Exception('Foo Bar');
+        hello();
     }
 
 

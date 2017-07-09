@@ -13,6 +13,9 @@
   "require": {},
   "autoload": {
     "psr-4": {
-    }
+    },
+    "files": [
+      "framework/global.php"
+    ]
   }
 }

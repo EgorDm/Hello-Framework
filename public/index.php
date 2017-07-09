@@ -29,6 +29,5 @@ $loader = require __DIR__ . '/../vendor/autoload.php';
 $loader->addPsr4('Framework\\', __DIR__ . '/../framework');
 $loader->addPsr4('Backend\\', __DIR__ . '/../backend');
 
-
 // Initialize the workflow
 $hello = new Framework\Hello;
